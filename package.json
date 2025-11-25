@@ -1,0 +1,37 @@
+{
+    "name": "game-review-site",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+    },
+    "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
+    },
+    "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0",
+    "jsdom": "^22.1.0",
+    "@testing-library/react": "^14.2.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.0"
+},
+    "vitest": {
+    "environment": "jsdom"
+    }
+}
