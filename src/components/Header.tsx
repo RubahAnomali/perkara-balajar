@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const sections = [
   { id: 'hero', label: 'Home' },
@@ -9,10 +9,22 @@ const sections = [
 ];
 
 export default function Header() {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    const saved = localStorage.getItem('theme');
+    return (saved === 'light' || saved === 'dark') ? (saved as 'light' | 'dark') : 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+
   return (
     <header className="site-header" role="banner">
       <div className="nav-inner">
-        <div className="brand" aria-label="Site logo">YourName</div>
+        <div className="brand" aria-label="Site logo">Foxxy</div>
         <nav aria-label="Primary">
           <div className="nav-links">
             {sections.map(s => (
@@ -20,6 +32,9 @@ export default function Header() {
             ))}
           </div>
         </nav>
+        <button className="button" onClick={toggleTheme} aria-label="Toggle theme">
+          {theme === 'dark' ? 'Light' : 'Dark'} mode
+        </button>
       </div>
     </header>
   );

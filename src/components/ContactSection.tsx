@@ -38,7 +38,7 @@ export default function ContactSection() {
           {sent && <div className="sent-note" role="status">Message queued ✔</div>}
         </form>
         <div className="alt-contacts">
-          <a href="mailto:farrellfyelo@gmail.com">farrellfyelo@gmail.com</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=farrellfyelo@gmail.com" target="_blank" rel="noopener noreferrer">farrellfyelo@gmail.com</a>
           <a href="https://github.com/girene646-laso" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a href="https://www.instagram.com/prlpyl/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
         </div>
