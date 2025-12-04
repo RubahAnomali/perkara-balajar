@@ -1,1 +1,0 @@
-import{j as t}from"./index-B_gmXkLE.js";import"./react-vendor-CdwiJlpV.js";function i(){return t.jsxs("section",{id:"about",className:"section about","aria-label":"About me",children:[t.jsx("h2",{className:"section-title",children:"About"}),t.jsx("p",{children:"Hello, im foxxy"})]})}export{i as default};
