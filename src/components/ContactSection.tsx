@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function ContactSection() {
+function ContactSection() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
@@ -46,3 +46,5 @@ export default function ContactSection() {
     </section>
   );
 }
+
+export default ContactSection;

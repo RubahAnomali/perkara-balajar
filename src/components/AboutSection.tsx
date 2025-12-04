@@ -1,4 +1,4 @@
-export default function AboutSection() {
+function AboutSection() {
   return (
     <section id="about" className="section about" aria-label="About me">
       <h2 className="section-title">About</h2>
@@ -8,3 +8,5 @@ export default function AboutSection() {
     </section>
   );
 }
+
+export default AboutSection;

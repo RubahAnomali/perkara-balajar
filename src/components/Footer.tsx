@@ -1,7 +1,9 @@
-export default function Footer() {
+function Footer() {
   return (
     <footer className="site-footer" role="contentinfo">
-      <p>© {new Date().getFullYear()} Your Name. Built with React & Vite.</p>
+      <p>© {new Date().getFullYear()} Foxxy. Built with React & Vite.</p>
     </footer>
   );
 }
+
+export default Footer;

@@ -5,7 +5,7 @@ const skillGroups: { title: string; items: string[] }[] = [
   { title: 'Testing', items: ['Elden Ring'] },
 ];
 
-export default function SkillsSection() {
+function SkillsSection() {
   return (
     <section id="skills" className="section" aria-label="Skills">
       <h2 className="section-title">Skills</h2>
@@ -20,3 +20,5 @@ export default function SkillsSection() {
     </section>
   );
 }
+
+export default SkillsSection;

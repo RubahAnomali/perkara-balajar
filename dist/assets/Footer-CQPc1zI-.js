@@ -1,0 +1,1 @@
+import{j as t}from"./index-B_gmXkLE.js";import"./react-vendor-CdwiJlpV.js";function r(){return t.jsx("footer",{className:"site-footer",role:"contentinfo",children:t.jsxs("p",{children:["© ",new Date().getFullYear()," Foxxy. Built with React & Vite."]})})}export{r as default};

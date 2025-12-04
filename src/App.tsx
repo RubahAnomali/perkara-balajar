@@ -1,11 +1,15 @@
+import { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import ProjectsSection from './components/ProjectsSection';
-import AboutSection from './components/AboutSection';
-import SkillsSection from './components/SkillsSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
+import LazySection from './components/LazySection';
 import './styles/global.css';
+
+// Lazy load non-critical sections
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
+const AboutSection = lazy(() => import('./components/AboutSection'));
+const SkillsSection = lazy(() => import('./components/SkillsSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const Footer = lazy(() => import('./components/Footer'));
 
 export default function App() {
   return (
@@ -14,12 +18,30 @@ export default function App() {
       <Header />
       <main id="main">
         <Hero />
-        <ProjectsSection />
-        <AboutSection />
-        <SkillsSection />
-        <ContactSection />
+        <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
+          <LazySection>
+            <ProjectsSection />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
+          <LazySection>
+            <AboutSection />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
+          <LazySection>
+            <SkillsSection />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
+          <LazySection>
+            <ContactSection />
+          </LazySection>
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

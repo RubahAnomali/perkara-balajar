@@ -11,7 +11,10 @@ const sections = [
 export default function Header() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('theme');
-    return (saved === 'light' || saved === 'dark') ? (saved as 'light' | 'dark') : 'dark';
+    if (saved === 'light' || saved === 'dark') {
+      return saved as 'light' | 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
   useEffect(() => {
