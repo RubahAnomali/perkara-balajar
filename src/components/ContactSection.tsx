@@ -57,11 +57,6 @@ function ContactSection() {
               <span>Instagram</span>
             </a>
           </div>
-          <div className="resume-download">
-            <a href="/resume.pdf" download className="button">
-              Download Resume (PDF)
-            </a>
-          </div>
         </div>
       </div>
     </section>
