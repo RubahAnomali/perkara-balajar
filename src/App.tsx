@@ -1,6 +1,6 @@
 import { lazy, Suspense, ReactNode } from 'react';
 import { Header } from './components';
-import ProfileHeader from './components/ProfileHeader';
+import Hero from './components/Hero';
 import { SchemaScripts } from './components/ui';
 import './styles/global.css';
 
@@ -59,25 +59,20 @@ export default function App() {
     <div className="portfolio-root">
       <SchemaScripts />
       <Header />
-      <main id="main" className="twitter-feed">
-        <div className="feed-container">
-          <ProfileHeader />
-          
-          <div className="feed-content">
-            <LazySectionWrapper>
-              <ProjectsSection />
-            </LazySectionWrapper>
-            <LazySectionWrapper>
-              <SkillsSection />
-            </LazySectionWrapper>
-            <LazySectionWrapper>
-              <AboutSection />
-            </LazySectionWrapper>
-            <LazySectionWrapper>
-              <ContactSection />
-            </LazySectionWrapper>
-          </div>
-        </div>
+      <main id="main" className="discord-home">
+        <Hero />
+        <LazySectionWrapper>
+          <ProjectsSection />
+        </LazySectionWrapper>
+        <LazySectionWrapper>
+          <SkillsSection />
+        </LazySectionWrapper>
+        <LazySectionWrapper>
+          <AboutSection />
+        </LazySectionWrapper>
+        <LazySectionWrapper>
+          <ContactSection />
+        </LazySectionWrapper>
       </main>
       <Suspense fallback={null}>
         <Footer />

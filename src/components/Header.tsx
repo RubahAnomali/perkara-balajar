@@ -1,57 +1,29 @@
-import { memo, useEffect, useState, useCallback } from 'react';
+import { memo } from 'react';
 
-const sections = [
-  { id: 'hero', label: 'Home' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' }
+const navLinks = [
+  { label: 'Download', href: '#projects' },
+  { label: 'Safety', href: '#about' },
+  { label: 'Support', href: '#contact' }
 ] as const;
 
 function Header() {
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') {
-      return saved as 'light' | 'dark';
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
-
-  const [isVisible, setIsVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleTheme = useCallback(() => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  }, []);
-
   return (
-    <header className={`site-header ${isVisible ? 'visible' : 'hidden'}`} role="banner">
-      <div className="nav-inner">
-        <div className="brand" aria-label="Site logo">Foxxy</div>
-        <button className="button" onClick={toggleTheme} aria-label="Toggle theme">
-          {theme === 'dark' ? 'Light' : 'Dark'} mode
-        </button>
+    <header className="site-header discord-header" role="banner">
+      <div className="nav-inner discord-nav-inner">
+        <div className="brand discord-brand" aria-label="Site logo">
+          <span className="brand-mark" aria-hidden="true" />
+          <span className="brand-text">Foxxy</span>
+        </div>
+        <nav className="discord-nav-links" aria-label="Primary">
+          {navLinks.map(link => (
+            <a key={link.label} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a className="button discord-cta" href="#contact">
+          Open Discord
+        </a>
       </div>
     </header>
   );
