@@ -21,9 +21,6 @@ function Header() {
             </a>
           ))}
         </nav>
-        <a className="button discord-cta" href="#contact">
-          Open Discord
-        </a>
       </div>
     </header>
   );

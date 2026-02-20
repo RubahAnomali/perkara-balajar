@@ -1,4 +1,5 @@
 import { lazy, Suspense, ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components';
 import Hero from './components/Hero';
 import { SchemaScripts } from './components/ui';
@@ -52,6 +53,19 @@ function LazySection({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
+
+function HomePage() {
+  return <Portfolio />;
+}
+
+function Portfolio() {
   // Use useLayoutEffect to scroll before browser paints
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
